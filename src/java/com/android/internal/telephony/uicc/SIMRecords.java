@@ -1247,6 +1247,10 @@ public class SIMRecords extends IccRecords {
         }
 
         public void onRecordLoaded(AsyncResult ar) {
+            if (ar.exception != null) {
+                loge("Record Load Exception: " + ar.exception);
+                return;
+            }
             mEfPl = (byte[]) ar.result;
             if (DBG) log("EF_PL=" + IccUtils.bytesToHexString(mEfPl));
         }
@@ -1258,6 +1262,10 @@ public class SIMRecords extends IccRecords {
         }
 
         public void onRecordLoaded(AsyncResult ar) {
+            if (ar.exception != null) {
+                loge("Record Load Exception: " + ar.exception);
+                return;
+            }
             mEfLi = (byte[]) ar.result;
             if (DBG) log("EF_LI=" + IccUtils.bytesToHexString(mEfLi));
         }
